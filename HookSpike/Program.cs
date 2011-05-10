@@ -12,11 +12,12 @@ namespace HookSpike {
       foreach(var argument in arguments) {
         Console.WriteLine("{0,2}: {1}", arguments.IndexOf(argument), argument);
       }
-
-      IDictionary environmentVariables = Environment.GetEnvironmentVariables();
-      foreach(DictionaryEntry de in environmentVariables) {
-        Console.WriteLine("  {0} = {1}", de.Key, de.Value);
+      
+      var env = Environment.GetEnvironmentVariables().Cast<DictionaryEntry>().ToDictionary(de => de.Key.ToString(), de => de.Value.ToString()).OrderBy(key => key.Key);
+      foreach(var pair in env) {
+        Console.WriteLine("  {0} = {1}", pair.Key, pair.Value);
       }
+      
     }
   }
 }
