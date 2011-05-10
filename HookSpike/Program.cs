@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -17,7 +18,10 @@ namespace HookSpike {
       foreach(var pair in env) {
         Console.WriteLine("  {0} = {1}", pair.Key, pair.Value);
       }
+
+      Console.WriteLine(Directory.GetCurrentDirectory());
       
+      Environment.Exit(1);
     }
   }
 }

@@ -1,0 +1,5 @@
+#!/bin/env HookSpike
+
+echo "hello world"
+
+exit 1
